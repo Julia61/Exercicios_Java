@@ -15,14 +15,14 @@ public class Cliente {
         return dinheiroNaConta;
     }
 
-    public double getSaldo(){
+    public double getSaque(){
         return dinheiroNaConta;
     }
 
-    public void setSaldo(double saldo){
+    public void setSaque(double saldo){
         if(saldo <= this.dinheiroNaConta){
             this.dinheiroNaConta -= saldo;
-            System.out.println("Saldo constatado!");
+            System.out.println("Saque constatado!");
         }
     }
 
@@ -38,8 +38,8 @@ public class Cliente {
 
 
     public void adicionarCliente(String nome, String cpf){
-        listaCliente.add(nome);
-        listaCliente.add(cpf);
+        listaCliente.add("Nome: " + nome);
+        listaCliente.add("CPF: " + cpf);
     }
 
     public void exibirCliente(){

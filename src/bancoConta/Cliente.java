@@ -9,18 +9,30 @@ public class Cliente {
     private List <String> listaCliente = new ArrayList();
     private String nome;
     private String cpf;
-    private double saldo = 45.00;
-    private double deposito;
+    private double dinheiroNaConta = 45;
 
+    public double getDinheiroNaConta(){
+        return dinheiroNaConta;
+    }
 
     public double getSaldo(){
-        return saldo;
+        return dinheiroNaConta;
     }
 
     public void setSaldo(double saldo){
-        if(saldo <= this.saldo){
-            this.saldo -= saldo;
+        if(saldo <= this.dinheiroNaConta){
+            this.dinheiroNaConta -= saldo;
             System.out.println("Saldo constatado!");
+        }
+    }
+
+    public double getDeposito(){
+        return dinheiroNaConta;
+    }
+
+    public void setDeposito(double deposito){
+        if(deposito > 0){
+            this.dinheiroNaConta += deposito;
         }
     }
 

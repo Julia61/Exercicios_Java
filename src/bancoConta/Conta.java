@@ -10,7 +10,7 @@ public class Conta {
         String opcao = scanner.nextLine().toLowerCase();
 
         while (!opcao.equals("s") && !opcao.equals("n")){
-            System.out.println("Opção Invalida!! Tente novamente: (s/n)");
+            System.out.println("Opção Inválida!! Tente novamente: (s/n)");
             opcao = scanner.nextLine().toLowerCase();
         }
 
@@ -34,7 +34,7 @@ public class Conta {
                     System.out.println( cliente.getNome() + " seu cadrastro foi realizado!!");
                     break;
                 } catch (InputMismatchException e) {
-                    System.out.println("Valor Invalido!! Tente novamamente!");
+                    System.out.println("Valor Inválido!! Tente novamamente!");
                     scanner.nextLine();
                 }
             }
@@ -49,7 +49,7 @@ public class Conta {
         String opcaoPlano = scanner.nextLine().toLowerCase();
 
         while (!opcaoPlano.equals("s") && !opcaoPlano.equals("n")){
-            System.out.println("Opção Invalida!! Tente novamente: (s/n)");
+            System.out.println("Opção Inválida!! Tente novamente: (s/n)");
             opcaoPlano = scanner.nextLine();
         }
 
@@ -61,56 +61,70 @@ public class Conta {
             String planoEscolha = scanner.nextLine().toLowerCase();
 
             while (!planoEscolha.equals("s") && !planoEscolha.equals("n")){
-                System.out.println("Opção Invalida!! Tente novamente: (s/n)");
+                System.out.println("Opção Inválida!! Tente novamente: (s/n)");
                 planoEscolha = scanner.nextLine().toLowerCase();
             }
             if(planoEscolha.equals("s")){
                 //arrumar exeção
-                System.out.println("Qual plano ?\nPlano [1]\nPlano [2]");
-                int escolha = scanner.nextInt();
+                while (true) {
+                    try {
+                        System.out.println("Qual plano ?\nPlano [1]\nPlano [2]");
+                        int escolha = scanner.nextInt();
 
-                if (escolha == 1){
-                    while (true) {
-                        try {
-                            System.out.println("Esse plano tem o valor de 30R$ por mês, Por favor faça o deposito: ");
-                            double saldo = scanner.nextDouble();
-                            while (saldo != 30){
-                                System.out.println("Esse plano tem o valor de 30R$ por mês, Saldo inconpativel!! Tente novamente");
-                                saldo = scanner.nextDouble();
+                        while (escolha != 1 && escolha != 2) {
+                            System.out.println("Opção Inválida");
+                            System.out.println("Qual plano ?\nPlano [1]\nPlano [2]");
+                            escolha = scanner.nextInt();
+                        }
+
+                        if (escolha == 1) {
+                            while (true) {
+                                try {
+                                    System.out.println("Esse plano tem o valor de 30R$ por mês, Por favor faça o deposito: ");
+                                    double saldo = scanner.nextDouble();
+                                    while (saldo != 30) {
+                                        System.out.println("Esse plano tem o valor de 30R$ por mês, Saldo inconpativel!! Tente novamente");
+                                        saldo = scanner.nextDouble();
+                                    }
+                                    cliente.setSaldo(saldo);
+                                    System.out.println("Você escolheu o plano 1:\nDe benefícios");
+                                    cliente.plano01();
+                                    System.out.println("Saldo constatado! Seja bem vindo(a)!" + cliente.getNome());
+                                    break;
+                                } catch (InputMismatchException e) {
+                                    System.out.println("Valor inválido!! Tente novamente: ");
+                                    scanner.nextLine();
+
+                                }
                             }
-                            cliente.setSaldo(saldo);
-                            System.out.println("Você escolheu o plano 1:\nDe benefícios");
-                            cliente.plano01();
-                            System.out.println("Saldo constatado! Seja bem vindo(a)!" + cliente.getNome());
-                            break;
-                        } catch (InputMismatchException e) {
-                            System.out.println("Valor invalido!! Tente novamente: ");
-                            scanner.nextLine();
+
+                        } else {
+                            while (true) {
+                                try {
+                                    System.out.println("Esse plano tem o valor de 15R$ por mês, Por favor faça o deposito: ");
+                                    double saldo = scanner.nextDouble();
+                                    while (saldo != 15) {
+                                        System.out.println("Esse plano tem o valor de 30R$ por mês, Saldo inconpativel!! Tente novamente");
+                                        saldo = scanner.nextDouble();
+                                    }
+                                    cliente.setSaldo(saldo);
+                                    System.out.println("Você escolheu o plano 2:\nDe benefícios");
+                                    cliente.plano02();
+                                    System.out.println("Saldo constatado! Seja bem vindo(a)!" + cliente.getNome());
+                                    break;
+                                } catch (InputMismatchException e) {
+                                    System.out.println("Valor inválido!! Tente novamente: ");
+                                    scanner.nextLine();
+                                }
+                            }
 
                         }
-                    }
-
-                }else {
-                    while (true){
-                        try {
-                            System.out.println("Esse plano tem o valor de 15R$ por mês, Por favor faça o deposito: ");
-                            double saldo = scanner.nextDouble();
-                            while (saldo != 15){
-                                System.out.println("Esse plano tem o valor de 30R$ por mês, Saldo inconpativel!! Tente novamente");
-                                saldo = scanner.nextDouble();
-                            }
-                            cliente.setSaldo(saldo);
-                            System.out.println("Você escolheu o plano 2:\nDe benefícios");
-                            cliente.plano02();
-                            System.out.println("Saldo constatado! Seja bem vindo(a)!" + cliente.getNome());
-                            break;
-                        }catch (InputMismatchException e){
-                            System.out.println("Valor invalido!! Tente novamente: ");
-                            scanner.nextLine();
-                        }
+                        break;
+                    }catch (InputMismatchException e){
+                        System.out.println("Plano inválido! Por favor digite um plano valido");
+                        scanner.nextLine();
                     }
                 }
-
             }
         }else {
             cliente.horario();

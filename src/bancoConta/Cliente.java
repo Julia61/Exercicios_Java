@@ -20,8 +20,7 @@ public class Cliente {
     public void setSaldo(double saldo){
         if(saldo <= this.saldo){
             this.saldo -= saldo;
-        }else{
-            System.out.println("Você não tem saldo  suficiente!");
+            System.out.println("Saldo constatado!");
         }
     }
 

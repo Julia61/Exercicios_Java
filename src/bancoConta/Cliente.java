@@ -90,13 +90,13 @@ public class Cliente {
         LocalTime horas = LocalTime.now();
         int horasAgora = horas.getHour();
 
-        if(horasAgora >=6 && horasAgora < 12){
+        if (horasAgora >= 6 && horasAgora < 12) {
             System.out.println("Tenha um Bom dia!");
-        }else if (horasAgora < 18){
+        } else if (horasAgora >= 12 && horasAgora < 18) {
             System.out.println("Tenha uma Boa tarde!");
-        }else if (horasAgora < 23){
+        } else if (horasAgora >= 18 && horasAgora < 23) {
             System.out.println("Tenha uma Boa noite!");
-        }else {
+        } else { // De 0 a 5, incluindo a madrugada
             System.out.println("Tenha uma Boa madrugada!");
         }
     }

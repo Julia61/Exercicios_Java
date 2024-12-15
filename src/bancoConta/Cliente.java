@@ -74,7 +74,7 @@ public class Cliente {
 
     public void setNome(String nome){
         this.nome = nome;
-        listaCliente.add(nome);
+
     }
 
     //vou implementar novas funcionalidades depois

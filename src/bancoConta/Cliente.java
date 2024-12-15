@@ -77,10 +77,11 @@ public class Cliente {
         listaCliente.add(nome);
     }
 
+    //vou implementar novas funcionalidades depois
     public String getCpf(){
         return cpf;
     }
-
+    //vou implementar novas funcionalidades depois
     public void setCpf(String cpf){
         this.cpf = cpf;
         listaCliente.add(cpf);
@@ -96,7 +97,7 @@ public class Cliente {
             System.out.println("Tenha uma Boa tarde!");
         } else if (horasAgora >= 18 && horasAgora < 23) {
             System.out.println("Tenha uma Boa noite!");
-        } else { // De 0 a 5, incluindo a madrugada
+        } else {
             System.out.println("Tenha uma Boa madrugada!");
         }
     }

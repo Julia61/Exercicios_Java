@@ -9,16 +9,14 @@ public class Conta {
         System.out.println("Gostaria de se cadrastrar no banco? (s/n)");
         String opcao = scanner.nextLine().toLowerCase();
 
-        //Tratar caractere
-        // adicionar na opção de recursos deposito tambem
-        //da uma olhada nos elses
 
-        while (!opcao.equals("s") && !opcao.equals("n")){
+
+        while (!opcao.trim().equalsIgnoreCase("s") && !opcao.trim().equalsIgnoreCase("n")){
             System.out.println("Opção Inválida!! Tente novamente: (s/n)");
             opcao = scanner.nextLine().toLowerCase();
         }
 
-        if(opcao.equals("s")){
+        if(opcao.trim().equalsIgnoreCase("s")){
             System.out.println("Qual é o seu nome? ");
             String nome = scanner.nextLine();
 
@@ -52,23 +50,23 @@ public class Conta {
         System.out.println("Temos 2 planos disponiveis no momento gostaria de velos? (s/n)");
         String opcaoPlano = scanner.nextLine().toLowerCase();
 
-        while (!opcaoPlano.equals("s") && !opcaoPlano.equals("n")){
+        while (!opcaoPlano.trim().equalsIgnoreCase("s") && !opcaoPlano.trim().equalsIgnoreCase("n")){
             System.out.println("Opção Inválida!! Tente novamente: (s/n)");
             opcaoPlano = scanner.nextLine();
         }
 
-        if(opcaoPlano.equals("s")){
+        if(opcaoPlano.trim().equalsIgnoreCase("s")){
             cliente.plano01();
             cliente.plano02();
 
             System.out.println("Gostaria de fazer um dos planos (s/n)");
             String planoEscolha = scanner.nextLine().toLowerCase();
 
-            while (!planoEscolha.equals("s") && !planoEscolha.equals("n")){
+            while (!planoEscolha.trim().equalsIgnoreCase("s") && !planoEscolha.trim().equalsIgnoreCase("n")){
                 System.out.println("Opção Inválida!! Tente novamente: (s/n)");
                 planoEscolha = scanner.nextLine().toLowerCase();
             }
-            if(planoEscolha.equals("s")){
+            if(planoEscolha.trim().equalsIgnoreCase("s")){
                 //arrumar exeção
                 while (true) {
                     try {
@@ -157,7 +155,7 @@ public class Conta {
                     while (true) {
                         try {
 
-                            if(contador >= 2){
+                            if(contador >= 3){
                                 System.out.println("O recurso de sacar está indisponível, você já vez dois saques hoje!!");
 
                                 String respostaRecurso = "s";
@@ -235,7 +233,7 @@ public class Conta {
                     while (true) {
                         try {
 
-                            if(contador >= 2){
+                            if(contador >= 3){
                                 System.out.println("O recurso de depositar está indisponível, você já vez dois depositos hoje!!");
 
                                 String respostaRecurso = "s";
@@ -298,7 +296,7 @@ public class Conta {
                                 fazerDeposito = scanner.nextDouble();
                                 scanner.nextLine();
                             }
-
+                            System.out.println("Deposito constatado!");
                             cliente.setDeposito(fazerDeposito);
                             contador++;
 
@@ -329,7 +327,7 @@ public class Conta {
             }
 
             try {
-                System.out.println("Gostaria de fazer mais movimentaçõe? (s/n)");
+                System.out.println("Gostaria de fazer mais movimentações? (s/n)");
                 resposta = scanner.nextLine().trim();
 
                 while (!resposta.trim().equalsIgnoreCase("s") && !resposta.trim().equalsIgnoreCase("n")){

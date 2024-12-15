@@ -159,35 +159,51 @@ public class Conta {
                                 String respostaRecurso = "s";
 
                                 while (respostaRecurso.trim().equalsIgnoreCase("s")) {
-                                    //fazer exceção
-                                    System.out.println("Recursos disponíveis :\n[ 1 ] Conferir saldo\n[ 2 ] Conferir cadastro\n[ 3 ] Sair\nOpção:  ");
-                                    int recursos = scanner.nextInt();
-                                    scanner.nextLine();
 
-                                    while (recursos <= 0 || recursos >= 4) {
-                                        System.out.println("Opção indisponivel!! ");
-                                        System.out.println("Recursos disponíveis :\n[ 1 ] Conferir saldo\n[ 2 ] Conferir cadastro\n[ 3 ] Sair\nOpção: ");
-                                        recursos = scanner.nextInt();
-                                        scanner.nextLine();
+                                    while (true) {
+
+                                        try {
+
+
+                                            System.out.println("Recursos disponíveis :\n[ 1 ] Conferir saldo\n[ 2 ] Conferir cadastro\n[ 3 ] Sair\nOpção:  ");
+                                            int recursos = scanner.nextInt();
+                                            scanner.nextLine();
+
+                                            while (recursos <= 0 || recursos >= 4) {
+                                                System.out.println("Opção indisponivel!! ");
+                                                System.out.println("Recursos disponíveis :\n[ 1 ] Conferir saldo\n[ 2 ] Conferir cadastro\n[ 3 ] Sair\nOpção: ");
+                                                recursos = scanner.nextInt();
+                                                scanner.nextLine();
+                                            }
+
+                                            if (recursos == 1) {
+                                                System.out.println("Seu saldo é de " + cliente.getDinheiroNaConta() + "R$");
+
+                                            } else if (recursos == 2) {
+                                                cliente.exibirCliente();
+                                            } else {
+                                                cliente.horario();
+                                                System.exit(0);
+                                            }
+
+
+                                            System.out.println("Gostaria de verificar novamente ? (s/n)");
+                                            respostaRecurso = scanner.nextLine().trim();
+
+                                            while (!respostaRecurso.trim().equalsIgnoreCase("s") && !respostaRecurso.trim().equalsIgnoreCase("n")){
+                                                System.out.println("Opção Inválida!! Tente novamente: (s/n)");
+                                                respostaRecurso = scanner.nextLine().trim();
+                                            }
+
+                                            break;
+                                        }catch (InputMismatchException e){
+                                            System.out.println("Opção Inválida!! Digite um número:");
+                                            scanner.nextLine();
+                                        }
+
                                     }
-
-                                    if (recursos == 1) {
-                                        System.out.println("Seu saldo é de " + cliente.getDinheiroNaConta() + "R$");
-
-                                    } else if (recursos == 2) {
-                                        cliente.exibirCliente();
-                                    } else {
-                                        cliente.horario();
-                                        System.exit(0);
-                                    }
-                                    //fazer uma exceção
-                                    System.out.println("Gostaria de verificar novamente ? (s/n)");
-                                    respostaRecurso = scanner.nextLine().trim();
-
 
                                 }
-
-
                             }
 
                             System.out.println("Qual o saque que gostaria de fazer ? R$");
@@ -211,7 +227,6 @@ public class Conta {
 
 
                     }
-
 
 
                 } else if (opcoes == 2) {
